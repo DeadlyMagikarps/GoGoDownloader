@@ -7,7 +7,8 @@
     alt="GoGoDownloader"
   />
   <h3>GoGo Downloader</h3>
-  <h4>Forked from <a href="https://github.com/sh1nobuu/BitAnime">BitAnime</a></h4>
+  <h4>Original from <a href="https://github.com/sh1nobuu/BitAnime">BitAnime</a></h4>
+  <h4>Forked from <a href="https://github.com/karl0ss/GoGoDownloader">karl0ss</a></h4>
   <h4>By: DeadlyMagikarps</h4>
   <p>
     A Python script that allows you to download all of an anime's episodes at once.
@@ -50,8 +51,8 @@ If you want to run from source, or are using Linux/Mac you can run directly from
 ## Screenshot
 
 <div align="center">
-  <img style="height:386px; width:688px;" src="https://github.com/karl0ss/GoGoDownloader/raw/master/img/screenshot.png"
-  title="BitAnime in action" alt="BitAnime Screenshot">
+  <img style="height:386px; width:688px;" src="https://github.com/DeadlyMagikarps/GoGoDownloader/raw/master/img/screenshot.png"
+  title="GoGoDownloader in action" alt="GoGoDownloader Screenshot">
 </div>
 
 ## Dependencies
@@ -60,19 +61,19 @@ If you want to run from source, or are using Linux/Mac you can run directly from
 
 ## Usage
 
-The anime name is separated by "-". You can either type it manually, or go to [gogoanime.gg](https://gogoanime3.co/) and search for the anime you want to download and copy the name from the URL.
+The anime name is separated by "-". You can either type it manually, or go to [gogoanime3.co](https://gogoanime3.co/) and search for the anime you want to download and copy the name from the URL.
 
 ### Examples
 
 ##### One word title
 
-- https://gogoanime3.gg/category/bakemonogatari >> bakemonogatari
-- https://gogoanime3.gg/category/steinsgate >> steinsgate
+- https://gogoanime3.co/category/bakemonogatari >> bakemonogatari
+- https://gogoanime3.co/category/steinsgate >> steinsgate
 
 ##### Multiple word title
 
-- https://gogoanime3.gg/category/shadows-house >> shadows-house
-- https://gogoanime3.gg/category/kono-subarashii-sekai-ni-shukufuku-wo- >> kono-subarashii-sekai-ni-shukufuku-wo-
+- https://gogoanime3.co/category/shadows-house >> shadows-house
+- https://gogoanime3.co/category/kono-subarashii-sekai-ni-shukufuku-wo- >> kono-subarashii-sekai-ni-shukufuku-wo-
 
 
 # GoGoDownloader CLI
