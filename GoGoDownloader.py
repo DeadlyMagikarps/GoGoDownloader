@@ -16,7 +16,7 @@ except AttributeError:
 
 
 def gogodownloader(config):
-    CURRENT_URL = config["CurrentGoGoAnimeDomain"]
+    CURRENT_URL = config["CurrentGoGoAnimeURL"]
     os.system("cls" if os.name == "nt" else "clear")
     while True:
         print(
