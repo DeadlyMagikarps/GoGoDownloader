@@ -8,8 +8,11 @@
   />
   <h3>GoGo Downloader</h3>
   <h4>Forked from <a href="https://github.com/sh1nobuu/BitAnime">BitAnime</a></h4>
+  <h4>By: DeadlyMagikarps</h4>
   <p>
     A Python script that allows you to download all of an anime's episodes at once.
+
+    UPDATES: Updated domain as of 2/26/2024 and requirements.txt modeules for installation.
   </p>
  
 </div>
@@ -18,7 +21,7 @@
 
 GoGo Downloader is based on the now broken **BitAnime**. I have had to rework quite a bit of the code to get it working again, and have ideas for some other improvements, I don't want to mess with the original codebase too much, hence **GoGo Downloader**.
 
-**GoGo Downloader** gets its content from [gogoanime](http://gogoanime3.net). If you get a **404** error, please look up the correct anime name on [gogoanime](http://gogoanime3.net). The application will let you download all the episodes, or you can choose how many episodes you want to download.
+**GoGo Downloader** gets its content from [gogoanime](https://gogoanime3.co). If you get a **404** error, please look up the correct anime name on [gogoanime](https://gogoanime3.co). The application will let you download all the episodes, or you can choose how many episodes you want to download.
 
 GoGo Anime has changed the way they show download links, and this no longer works via BS4, as the recaptcha blocks the links, but if you are logged in, there are other routes to get to download links, I have taken one of these routes to restore the application.
 
@@ -57,7 +60,7 @@ If you want to run from source, or are using Linux/Mac you can run directly from
 
 ## Usage
 
-The anime name is separated by "-". You can either type it manually, or go to [gogoanime.gg](https://gogoanime3.gg/) and search for the anime you want to download and copy the name from the URL.
+The anime name is separated by "-". You can either type it manually, or go to [gogoanime.gg](https://gogoanime3.co/) and search for the anime you want to download and copy the name from the URL.
 
 ### Examples
 
