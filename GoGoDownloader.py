@@ -33,9 +33,9 @@ def gogodownloader(config):
           /_____/\____/|__/|__/_/ /_/_/\____/\__,_/\__,_/\___/_/     
     
                               {Fore.RED}
-                                  By: Karl0ss
+                              By: DeadlyMagikarps
                              Forked From: sh1nobuu
-                  Github: https://github.com/karl0ss/GoGoDownloader
+                  Github: https://github.com/DeadlyMagikarps/GoGoDownloader
     """
         )
         while True:
