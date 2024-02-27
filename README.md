@@ -12,8 +12,6 @@
   <h4>By: DeadlyMagikarps</h4>
   <p>
     A Python script that allows you to download all of an anime's episodes at once.
-
-    UPDATES: Updated domain as of 2/26/2024 and requirements.txt modeules for installation.
   </p>
  
 </div>
