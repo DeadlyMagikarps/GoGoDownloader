@@ -2,6 +2,7 @@ import json
 import io
 import os
 import re
+import sys
 from backend import *
 
 
@@ -14,7 +15,8 @@ def renameFile(filename: str):
     Returns:
         _type_: _description_
     """
-    newFileName = "".join(re.split("\(|\)|\[|\]", filename)[::2])
+    
+    newFileName = "".join(re.split(r"\(|\)|\[|\]", filename)[::2])
     try:
         os.rename(filename, newFileName)
         return True
@@ -75,53 +77,67 @@ def readDownloadHistory(fileNameObject: object, downloadHistory: list):
 
 
 def main():
-    dh = loadDownloadHistory()
-    config = config_check()
-    downloader = gogoanime(
-        config,
-        1,
-        config["CLIQuality"],
-        "a",
-        1,
-        1,
-        1,
-        config["CLIDownloadLocation"],
-    )
-    list = downloader.get_show_from_bookmark()
-    dl_links = {}
-    for ep in list:
-        if readDownloadHistory(ep, dh):
-            showName = ep["showName"] + " - " + str(ep["latestEpisode"])
-            print(f"{IN}{showName} already downloaded")
-        else:
-            print(
-                f"{IN}Scraping DL for "
-                + ep["showName"]
-                + " Ep "
-                + str(ep["latestEpisode"])
-            )
-            dl_links[downloader.get_download_link(ep["downloadURL"])] = (
-                ep["showName"],
-                ep["latestEpisode"],
-            )
-    result = downloader.file_downloader(dl_links)
-    if config["CleanUpFileName"]:
-        for file in result.data:
-            renameFile(file)
-    if len(result.errors) > 0:
-        while len(result.errors) > 0:
-            print(f"{ERR}{len(result.errors)} links failed retrying.")
-            print(f"{IN}Re-Scraping Links")
-            dl_links.clear()
-            for ep in list:
+
+    """Print to log"""
+    with open('log.txt', 'w') as fileOutput:
+        sys.stdout = fileOutput
+        
+        dh = loadDownloadHistory()
+        config = config_check()
+        downloader = gogoanime(
+            config,
+            1,
+            config["CLIQuality"],
+            "a",
+            1,
+            1,
+            1,
+            config["CLIDownloadLocation"],
+        )
+        list = downloader.get_show_from_bookmark()
+        dl_links = {}
+        for ep in list:
+            if readDownloadHistory(ep, dh):
+                showName = ep["showName"] + " - " + str(ep["latestEpisode"])
+                print(f"{IN}{showName} already downloaded")
+
+            else:
+                """Print to log"""
+                with open('output.log', 'w') as fileOutput:
+                    sys.stdout = fileOutput
+                print(
+                    f"{IN}Scraping DL for "
+                    + ep["showName"]
+                    + " Ep "
+                    + str(ep["latestEpisode"])
+                )
+
                 dl_links[downloader.get_download_link(ep["downloadURL"])] = (
                     ep["showName"],
                     ep["latestEpisode"],
                 )
-            result = downloader.file_downloader(dl_links, overwrite_downloads=0)
-            if config["CleanUpFileName"]:
-                for file in result.data:
-                    renameFile(file)
+
+        result = downloader.file_downloader(dl_links)
+        if config["CleanUpFileName"]:
+            for file in result.data:
+                renameFile(file)
+        if len(result.errors) > 0:
+            while len(result.errors) > 0:
+                print(f"{ERR}{len(result.errors)} links failed retrying.")
+                print(f"{IN}Re-Scraping Links")
+                dl_links.clear()
+                for ep in list:
+                    dl_links[downloader.get_download_link(ep["downloadURL"])] = (
+                        ep["showName"],
+                        ep["latestEpisode"],
+                    )
+                result = downloader.file_downloader(dl_links, overwrite_downloads=0)
+                if config["CleanUpFileName"]:
+                    for file in result.data:
+                        renameFile(file)
+
+    """Restore stdout"""
+    sys.stdout = sys.__stdout__
 
 
 if __name__ == "__main__":
